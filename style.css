@@ -87,7 +87,9 @@ body {
 .container {
   width: 100%;
   margin: auto;
-  max-width: 2000px;
+  width: 95vmin;
+  height: 53.67vmin;
+  margin: auto;
 }
 
 .board {
@@ -112,7 +114,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: calc((100vh - 90px - 4rem)/30);
+  height: calc(53.67vmin / 30);
 }
 
 .board .col {
@@ -138,16 +140,7 @@ body {
   opacity: 0;
 }
 
-@media (min-width: 576px) {
-  .container {
-    max-width: 520px;
-  }
-}
-
 @media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
   .container .board .col {
     -webkit-transform: scale(1.15);
             transform: scale(1.15);
@@ -155,22 +148,19 @@ body {
 }
 
 @media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
   .container .board .col {
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1100px) and (min-aspect-ratio: 16 / 10) and (orientation: landscape) {
   .container {
-    max-width: 1520px;
+    width: 123.9vmin;
+    height: 70vmin;
   }
-  .container .board .col {
-    -webkit-transform: scale(1.05);
-            transform: scale(1.05);
+  .container .board .row {
+    height: calc(70vmin / 30);
   }
 }
 /*# sourceMappingURL=style.css.map */
