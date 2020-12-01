@@ -44,8 +44,7 @@ function GameBoard(n, m) {
         $("#board").append("<div class=row id=row" + i + "> ");
         for (var j = 0; j < m; j++) {
             $("#board #row" + i).append("<span class=col id=col" + i + "_" + j + ">");
-            $('#roll').addClass("show");
-            $('#showAll').addClass("show");
+            $('.button').addClass("show");
             $('#start').html('Restart');
         }
     }
@@ -84,4 +83,15 @@ $().ready(function () {
     $("#showAll").bind("click", function () {
         showAll();
     });
+    $("#rollTen").bind("click", function () {
+        for (i = 0; i < 10; i++) {
+            roll();
+        }
+    });
+    $("#rollFifty").bind("click", function () {
+        for (i = 0; i < 50; i++) {
+            roll();
+        }
+    });
+
 });
