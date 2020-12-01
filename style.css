@@ -38,7 +38,7 @@ body {
   background-color: #f3af19;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  margin: 0 5px;
+  margin: 0.5rem 5px;
   display: inline-block;
   -webkit-transform: scale(1);
           transform: scale(1);
