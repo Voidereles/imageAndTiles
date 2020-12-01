@@ -1,8 +1,8 @@
 body {
-  font-family: tahoma, helvetica, arial, sans-serif;
+  font-family: 'Bowlby One SC', cursive;
   font-size: 1.2rem;
   text-align: center;
-  color: #777;
+  color: white;
   margin: 0.5rem;
   padding: 0;
   background-color: #292db3;
@@ -28,21 +28,11 @@ body {
   height: 100%;
 }
 
-ul {
-  text-align: left;
-}
-
-.container {
-  width: 100%;
-  margin: auto;
-  max-width: 2000px;
-}
-
 .buttons {
   margin: 1rem 0;
 }
 
-.button {
+.buttons .button {
   color: #000;
   padding: 5px 10px;
   background-color: #f3af19;
@@ -52,42 +42,55 @@ ul {
   display: inline-block;
   -webkit-transform: scale(1);
           transform: scale(1);
+  outline: none;
+  border: none;
+  font-family: 'Bowlby One SC', cursive;
+  letter-spacing: 0.7px;
   cursor: pointer;
 }
 
-.button.danger {
+.buttons .button:hover, .buttons .button:active, .buttons .button:focus {
+  outline: none;
+  border: none;
+}
+
+.buttons .button:hover {
+  background-color: #ce910b;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.buttons .button:active {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
+.buttons .button--roll, .buttons .button--showAll {
+  display: none;
+}
+
+.buttons .button--roll.show, .buttons .button--showAll.show {
+  display: inline-block;
+}
+
+.buttons .button--showAll {
   background-color: #9d4dbb;
   color: white;
   display: none;
   margin-top: 1rem;
 }
 
-.button.danger:hover {
+.buttons .button--showAll:hover {
   background-color: #803b9a;
 }
 
-#roll,
-#showAll {
-  display: none;
+.container {
+  width: 100%;
+  margin: auto;
+  max-width: 2000px;
 }
 
-#roll.show,
-#showAll.show {
-  display: inline-block;
-}
-
-.button:hover {
-  background-color: #e7a10a;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
-.button:active {
-  -webkit-transform: scale(0.7);
-          transform: scale(0.7);
-}
-
-#board {
+.board {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -99,11 +102,11 @@ ul {
   position: relative;
 }
 
-#board .img {
+.board .img {
   display: block;
 }
 
-.row {
+.board .row {
   margin: 0px;
   height: 24px;
   display: -webkit-box;
@@ -112,7 +115,7 @@ ul {
   height: calc((100vh - 90px - 4rem)/30);
 }
 
-.col {
+.board .col {
   margin: 0px;
   height: 100%;
   -webkit-box-flex: 1;
@@ -130,7 +133,7 @@ ul {
   opacity: 1;
 }
 
-.col.transparent {
+.board .col.transparent {
   background-color: transparent;
   opacity: 0;
 }
@@ -145,7 +148,7 @@ ul {
   .container {
     max-width: 720px;
   }
-  .container .col {
+  .container .board .col {
     -webkit-transform: scale(1.15);
             transform: scale(1.15);
   }
@@ -155,7 +158,7 @@ ul {
   .container {
     max-width: 960px;
   }
-  .container .col {
+  .container .board .col {
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
   }
@@ -165,7 +168,7 @@ ul {
   .container {
     max-width: 1520px;
   }
-  .container .col {
+  .container .board .col {
     -webkit-transform: scale(1.05);
             transform: scale(1.05);
   }

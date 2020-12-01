@@ -1,8 +1,3 @@
-var sec = -1;
-let timeout;
-
-
-
 function getId(strId) {
     arr = new Array(2);
     arr[0] = strId.substring(3, strId.indexOf('_'));
@@ -30,9 +25,6 @@ function GameBoard(n, m) {
     this.m = m;
 
     score = 0;
-
-    //n*m%2==0
-
     picBoard = new Array(n);
     last = -1;
 
@@ -48,7 +40,6 @@ function GameBoard(n, m) {
         }
     }
 
-    // n -row; m -column 
     for (var i = 0; i < n; i++) {
         $("#board").append("<div class=row id=row" + i + "> ");
         for (var j = 0; j < m; j++) {
@@ -56,12 +47,6 @@ function GameBoard(n, m) {
             $('#roll').addClass("show");
             $('#showAll').addClass("show");
             $('#start').html('Restart');
-            // $("#col" + i + "_" + j).bind("click", function () {
-
-            //     show(this);
-            //     this.classList.add('transparent');
-            //     $('#score').html(document.querySelectorAll('#board .transparent').length);
-            // });
         }
     }
 }
@@ -70,29 +55,22 @@ function GameBoard(n, m) {
 function roll() {
     rolledEl = $("#col" + getRandomInt(0, rowNumber) + "_" + getRandomInt(0, columNumber));
     rolledEl.addClass('transparent');
-    $('#score').html(document.querySelectorAll('#board .transparent').length);
+    $('#score').html("Exposed tiles: " + document.querySelectorAll('#board .transparent').length);
 }
 
 function showAll() {
     $('#board span').addClass('transparent');
-    $('#score').html(document.querySelectorAll('#board .transparent').length);
+    $('#score').html("Exposed tiles: " + document.querySelectorAll('#board .transparent').length);
 }
 
 
 let rowNumber, columNumber;
 
 function start() {
-    $('#score').html('0').css('color', 'inherit'); //czyszczenie koloru i wartosci
-    document.getElementById("board").innerHTML = '<img class="img" src="img.PNG" alt="">'; //czyszczenie obecnej planszy
-    //bez tego po każdym kliknięciu przyspieszałoby czas
-
+    document.getElementById("board").innerHTML = '<img class="img" src="img.PNG" alt="">';
     rowNumber = 30;
     columNumber = 50;
-
     board = new GameBoard(rowNumber, columNumber);
-    // var img = document.querySelector('img');
-
-    // $('.col').css("width", Math.round($('.row').width() / columNumber) + "px");
 }
 
 $().ready(function () {

@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
     <title>Losowanie</title>
 </head>
 
@@ -12,21 +13,24 @@
 
     <div class="buttons">
 
-        <div class="button" id="start">Start</div>
-        <div class="button" id="roll">Roll</div>
+        <button class="button" id="start">Start</button>
+        <button class="button button--roll" id="roll">Roll</button>
 
-        Exposed tiles: <span id="score">0</span>
+        <span id="score"></span>
 
     </div>
-    <img class="img" src="img.PNG" alt="">
-    <div class="container">
 
-        <div id="board">
+    <img class="img" src="img.PNG" alt="">
+
+    <div class="container">
+        <div class="board" id="board">
         </div>
     </div>
+
     <div class="buttons">
-        <div class="button danger" id="showAll">Show all</div>
+        <button class="button button--showAll" id="showAll">Show all</button>
     </div>
+
     <script src="script.js" async defer></script>
 </body>
 

@@ -1,8 +1,8 @@
 body {
-    font-family: tahoma, helvetica, arial, sans-serif;
+    font-family: 'Bowlby One SC', cursive;
     font-size: 1.2rem;
     text-align: center;
-    color: #777;
+    color: white;
     margin: 0.5rem;
     padding: 0;
     background-color: #292db3;
@@ -29,10 +29,61 @@ body {
     height: 100%;
 }
 
-ul {
-    text-align: left;
-}
 
+.buttons {
+    margin: 1rem 0;
+
+    .button {
+        color: #000;
+        padding: 5px 10px;
+        background-color: #f3af19;
+        transition: 0.3s;
+        margin: 0 5px;
+        display: inline-block;
+        transform: scale(1);
+        outline: none;
+        border: none;
+        font-family: 'Bowlby One SC', cursive;
+        letter-spacing: 0.7px;
+        cursor: pointer;
+
+        &:hover,
+        &:active,
+        &:focus {
+            outline: none;
+            border: none;
+        }
+
+        &:hover {
+            background-color: darken($color: #f3af19, $amount: 10%);
+            transform: scale(1);
+        }
+
+        &:active {
+            transform: scale(0.7);
+        }
+
+        &--roll,
+        &--showAll {
+            display: none;
+
+            &.show {
+                display: inline-block;
+            }
+        }
+
+        &--showAll {
+            background-color: #9d4dbb;
+            color: white;
+            display: none;
+            margin-top: 1rem;
+
+            &:hover {
+                background-color: darken($color: #9d4dbb, $amount: 10%);
+            }
+        }
+    }
+}
 
 .container {
     width: 100%;
@@ -40,56 +91,7 @@ ul {
     max-width: 2000px;
 }
 
-
-
-.buttons {
-    margin: 1rem 0;
-}
-
-.button {
-    color: #000;
-    padding: 5px 10px;
-    background-color: #f3af19;
-    transition: 0.3s;
-    margin: 0 5px;
-    display: inline-block;
-    transform: scale(1);
-
-    cursor: pointer;
-
-    &.danger {
-        background-color: #9d4dbb;
-        color: white;
-        display: none;
-        margin-top: 1rem;
-
-        &:hover {
-            background-color: darken($color: #9d4dbb, $amount: 10%);
-        }
-    }
-}
-
-
-#roll,
-#showAll {
-    display: none;
-}
-
-#roll.show,
-#showAll.show {
-    display: inline-block;
-}
-
-.button:hover {
-    background-color: #e7a10a;
-    transform: scale(1);
-}
-
-.button:active {
-    transform: scale(0.7);
-}
-
-#board {
+.board {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -98,32 +100,33 @@ ul {
     .img {
         display: block;
     }
-}
 
-.row {
-    margin: 0px;
-    height: 24px;
-    display: flex;
-    height: calc((100vh - 90px - 4rem)/30);
-}
-
-.col {
-    margin: 0px;
-    height: 100%;
-    flex-grow: 1;
-    background-color: #4c51f7;
-    display: inline-block;
-    line-height: 24px;
-    transition: 5s;
-    // transform: rotateX(180deg) rotateY(180deg) scale(1.054);
-    transform-origin: center;
-    transform: scale(1.25);
-    opacity: 1;
-
-    &.transparent {
-        background-color: transparent;
-        opacity: 0;
+    .row {
+        margin: 0px;
+        height: 24px;
+        display: flex;
+        height: calc((100vh - 90px - 4rem)/30);
     }
+
+    .col {
+        margin: 0px;
+        height: 100%;
+        flex-grow: 1;
+        background-color: #4c51f7;
+        display: inline-block;
+        line-height: 24px;
+        transition: 5s;
+        // transform: rotateX(180deg) rotateY(180deg) scale(1.054);
+        transform-origin: center;
+        transform: scale(1.25);
+        opacity: 1;
+
+        &.transparent {
+            background-color: transparent;
+            opacity: 0;
+        }
+    }
+
 }
 
 
@@ -140,7 +143,7 @@ ul {
     .container {
         max-width: 720px;
 
-        .col {
+        .board .col {
             transform: scale(1.15);
         }
     }
@@ -151,7 +154,7 @@ ul {
     .container {
         max-width: 960px;
 
-        .col {
+        .board .col {
             transform: scale(1.1);
         }
     }
@@ -163,7 +166,7 @@ ul {
         max-width: 1520px;
 
 
-        .col {
+        .board .col {
             transform: scale(1.05);
         }
     }
